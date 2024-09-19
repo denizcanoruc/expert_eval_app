@@ -73,18 +73,20 @@ def question():
         close_connection()
         return questions
         """
-        clips_df = get_clips()
+        clips_df = pd.read_csv("/Users/denizcanoruc/Desktop/expert_evaluation/frontend/public/shot_clips/clip_frames.csv")
+        clips = clips_df.sample(20)["shot"]
+
         questions = []
         for i in range(10):
             questions.append({
                 "question_id" : 2*i,
-                "url1" : clips_df.iloc[2*i]["url"],
-                "tn1" : "../frontend/clips/tn_" + str(2*i) + ".jpg",
-                "url2" : clips_df.iloc[2*i + 1]["url"],
-                "tn2" : "../frontend/clips/tn_" + str(2*i+1) + ".jpg",})
+                "url1" : "./shot_clips/" + clips.iloc[2*i] + ".mp4",
+                "tn1" : "./shot_clips/" + clips.iloc[2*i] + ".jpg",
+                "url2" : "./shot_clips/" + clips.iloc[2*i+1] + ".mp4",
+                "tn2" : "./shot_clips/" + clips.iloc[2*i+1] + ".jpg",})
         
         print("aaaaaa")
-        print(questions[1]["url1"])
+        print(questions[0]["url1"])
         return questions
 
 

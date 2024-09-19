@@ -20,8 +20,6 @@ function Home({ setToken }) {
     console.log("Yey");
   };
 
-  const tut_vdi = require("../clips/tutorial.mp4");
-
   console.log(pathway);
   return (
     <div className="App">
@@ -29,7 +27,7 @@ function Home({ setToken }) {
         <p>
           {!fin && "Welcome! Here is a small tutorial:"} {fin && "Goodbye!"}{" "}
         </p>
-        <ReactPlayer url="https://streamable.com/ng564b" controls={true} />
+        <ReactPlayer url="./tutorial.mp4" controls={true} />
 
         {!fin && (
           <a
